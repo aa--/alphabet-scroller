@@ -1,0 +1,66 @@
+/* @module: reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+*,body{font-family:Arial,Helvetica,sans-serif; }
+body{color:#333;background:#FFF;font-size:12px;line-height:1.5;}
+th,td{text-align:left;vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:normal;}
+font{font-size: 12px;}
+a,a.visited{color:#069;text-decoration:none;}
+a:hover {text-decoration:underline;}
+*html a:hover span{text-decoration:underline;}
+a.current:hover {text-decoration:none;cursor:default;}
+img{display:block;border:0;}
+li{list-style:none;}
+input,label,select,option,textarea,button,fieldset,legend{font-size:1em;font-family:Arial,Helvetica,sans-serif;}
+textarea {overflow:auto\9;} /* fix IE area scrollbar*/
+q:before,q:after{content:''}
+
+/* @module: layout */
+.container {
+    position: relative;
+    max-width: 300px;
+    overflow: hidden;
+    margin: 10px auto;
+    background-color: #A5D5FA;
+}
+.list {
+    padding: 5px 10px;
+    height: 330px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.list::-webkit-scrollbar {
+    display: none;
+}
+.list li {
+    position: relative;
+    height: 18px;
+    overflow: hidden;
+}
+.list li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(165, 213, 250, 0)), to(#A5D5FA));
+    background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), #fff);
+    background-image: linear-gradient(left, rgba(255, 255, 255, 0), #fff);
+    pointer-events: none; /* this make the link underneath clickable */
+    right: 0;
+    width: 40px;
+}
+.scroller {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    line-height: 1.1;
+}
+.scroller li {
+    padding: 0 2px;
+}
+.scroller .highlight {
+    background: rgba(237, 237, 237, 0.8);
+}
+.scroller .disabled {
+    color: gray;
+}
