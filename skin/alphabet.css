@@ -4,7 +4,6 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 body{color:#333;background:#FFF;font-size:12px;line-height:1.5;}
 th,td{text-align:left;vertical-align:top;}
 h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:normal;}
-font{font-size: 12px;}
 a,a.visited{color:#069;text-decoration:none;}
 a:hover {text-decoration:underline;}
 *html a:hover span{text-decoration:underline;}
@@ -32,12 +31,12 @@ q:before,q:after{content:''}
 .list::-webkit-scrollbar {
     display: none;
 }
-.list li {
+.list li li {
     position: relative;
     height: 18px;
     overflow: hidden;
 }
-.list li::after {
+.list li li::after {
     content: "";
     position: absolute;
     top: 0;
@@ -57,6 +56,9 @@ q:before,q:after{content:''}
 }
 .scroller li {
     padding: 0 2px;
+}
+.scroller a {
+    display: block;
 }
 .scroller .highlight {
     background: rgba(237, 237, 237, 0.8);
