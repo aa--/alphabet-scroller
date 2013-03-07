@@ -8,17 +8,15 @@ $(document).ready(function(){
         $list           = $('#list'),                       // 列表
         $indexArray     = $list.find('[data-type]'),        // 列表锚点的jquery对象
         $alphabetArray  = $scroller.find('a'),              // 字母链接的jquery对象
-        $itemArray      = $list.find('li li'),
-        $firstItem      = $itemArray.eq(0),
+        $itemArray      = $list.find('li li'),              // 列表项
+        $firstItem      = $itemArray.eq(0),                 // 第一项
         listIndex       = '',                               // 列表索引组成的字符串
-        itemHeight      = $firstItem.height(),
-        listHeight      = $list.height(),
+        itemHeight      = $firstItem.height(),              // item高度
+        listHeight      = $list.height(),                   // 列表显示高度
         visiableNum     = parseInt(listHeight / itemHeight, 10),
         n,
-        highlightStart  = '',
-        highlightEnd    = '',
-        $TopItem,
-        $BottomItem,
+        highlightStart  = '',                               // 当前高亮首项
+        highlightEnd    = '',                               // 当前高亮末项
         timer,
         firstIndex      = '',                               // 索引首位
         firstHref       = '',                               // 首位链接
@@ -26,19 +24,15 @@ $(document).ready(function(){
     //--- 更新滚动条 ----------------------------------------------
     function updateHighlight() {
         n = - parseInt($firstItem.position().top / itemHeight, 10);
-        highlightStart = $itemArray.eq(n)
-                                   .text();
-        highlightStart = unicodeOffsetA(highlightStart);
-        highlightEnd = $itemArray.eq(n+visiableNum)
-                                 .text();
-        highlightEnd = unicodeOffsetA(highlightEnd);
+        highlightStart = unicodeOffsetA($itemArray.eq(n).text());
+        highlightEnd = unicodeOffsetA($itemArray.eq(n+visiableNum).text());
         $alphabetArray.removeClass('highlight');
         $alphabetArray.slice(highlightStart, highlightEnd + 1)
                       .addClass('highlight');
     }
     //--- turn to charCode offset to 'A' ----------------------------------------------
-    function unicodeOffsetA(n) {
-        return n.toUpperCase().charCodeAt(0) - 65;
+    function unicodeOffsetA(name) {
+        return name.toUpperCase().charCodeAt(0) - 65;
     }
     //--- initialize listIndex ----------------------------------------------
     $indexArray.each(function() {
