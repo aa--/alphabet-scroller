@@ -62,10 +62,13 @@ $(document).ready(function(){
 
     updateHighlight();
     $list.bind('scroll', function() {
+        //updateHighlight();
         if(timer) {
             clearTimeout(timer);
             timer = 0;
         }
-        timer = setTimeout(updateHighlight, 50);
+        timer = setTimeout(function() {
+                    updateHighlight();
+                }, 50);
     });
 });
